@@ -2,8 +2,7 @@
   <section class="indexSwiper">
     <swiper :options="swiperOption">
       <!-- slides -->
-      <swiper-slide><img class="picShow" src="http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/e5104d77fbfdb522bd4fe4f0451e517f.jpg_750x200_7d44f64b.jpg" /></swiper-slide>
-      <swiper-slide><img class="picShow" src="http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20195/5eb82a8ca5b0cebb2c3ae1a53a4d8f81.jpg_750x200_645bfba1.jpg"></swiper-slide>
+      <swiper-slide v-for="item in swiperList" :key="item.id"><img class="picShow" :src="item.imgUrl"></swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
@@ -18,7 +17,15 @@ export default {
       swiperOption: {
         pagination: '.swiper-pagination',
         autoplay: 5000
-      }
+      },
+      swiperList: [
+        {'id': '0001',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg'
+        },
+        {'id': '0002',
+          'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1802/42/7c92b9a381e46402.jpg_640x200_1cdce2a4.jpg'
+        }
+      ]
     }
   }
 }
@@ -31,7 +38,8 @@ export default {
    overflow: hidden
    width:100%
    height:0
-   padding-bottom:31.25%
+   padding-bottom:31.3%
+   background:#eee
    .picShow
       width:100%
 </style>
