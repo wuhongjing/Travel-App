@@ -76,6 +76,7 @@ export default {
   overflow: hidden
   height: 0
   padding-bottom: 50%
+  margin-top: .1rem
   .navWrap
     > li
       overflow: hidden
