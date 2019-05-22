@@ -1,15 +1,19 @@
 <template>
   <section class="city">
     <CityHeader></CityHeader>
+    <CitySearch></CitySearch>
   </section>
 </template>
 
 <script>
 import CityHeader from './components/CityHeader'
+import CitySearch from './components/CitySearch'
+
 export default {
   name: 'City',
   components: {
-    CityHeader
+    CityHeader,
+    CitySearch
   },
   data () {
     return {
