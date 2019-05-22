@@ -46,7 +46,7 @@ export default {
       let data = res.data
       if (data.ret || data.data) {
         data = data.data
-        console.log(data)
+        // console.log(data)
         this.city = data.city
         this.swiperList = data.swiperList
         this.iconList = data.iconList
