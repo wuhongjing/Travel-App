@@ -2,27 +2,11 @@
   <section class="recommend">
      <div class="recoTitle">热销推荐</div>
      <ul>
-        <li class="item border-bottom">
-           <div class="itemPic"><img src="http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_200x200_2458ffb2.jpg" /></div>
+        <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+           <div class="itemPic"><img :src="item.imgUrl" /></div>
            <div class="itemInfo">
-              <p class="itemTit">北京世界园艺博览会北京世界园艺</p>
-              <p class="itemDesc">北京世界园艺博览会北京世界园艺博览会</p>
-              <button class="itemBtn">查看详情</button>
-           </div>
-        </li>
-        <li class="item border-bottom">
-           <div class="itemPic"><img src="http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_200x200_2458ffb2.jpg" /></div>
-           <div class="itemInfo">
-              <p class="itemTit">北京世界园艺博览会北京世界园艺</p>
-              <p class="itemDesc">北京世界园艺博览会北京世界园艺博览会</p>
-              <button class="itemBtn">查看详情</button>
-           </div>
-        </li>
-        <li class="item border-bottom">
-           <div class="itemPic"><img src="http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_200x200_2458ffb2.jpg" /></div>
-           <div class="itemInfo">
-              <p class="itemTit">北京世界园艺博览会北京世界园艺</p>
-              <p class="itemDesc">北京世界园艺博览会北京世界园艺博览会</p>
+              <p class="itemTit">{{item.title}}</p>
+              <p class="itemDesc">{{item.desc}}</p>
               <button class="itemBtn">查看详情</button>
            </div>
         </li>
@@ -32,7 +16,29 @@
 
 <script>
 export default {
-  name: 'Recommend'
+  name: 'Recommend',
+  data () {
+    return {
+      recommendList: [
+        {
+          'id': '0001',
+          'imgUrl': 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg',
+          'title': '故宫',
+          'desc': '东方宫殿建筑代表，世界宫殿建筑典范'
+        }, {
+          'id': '0002',
+          'imgUrl': 'http://img1.qunarzz.com/sight/p0/1511/d2/d2aec2dfc5aa771290.water.jpg_140x140_abb362a7.jpg',
+          'title': '南山滑雪场',
+          'desc': '北京专业级滑雪圣地'
+        }, {
+          'id': '0003',
+          'imgUrl': 'http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg',
+          'title': '天安门广场',
+          'desc': '我爱北京天安门，天安门上太阳升'
+        }
+      ]
+    }
+  }
 }
 </script>
 
@@ -53,17 +59,18 @@ export default {
       height: 1.7rem
       padding: .15rem
       > img
-        width:100%
+        width: 1.7rem
    .itemInfo
       flex: 1
       padding: .1rem
+      min-width: 0
       .itemTit
          line-height: .54rem
          font-size: .32rem
          ellipsis()
       .itemDesc
          line-height: .4rem
-         font-size: .3rem
+         font-size: .28rem
          color: #ccc
          ellipsis()
       .itemBtn

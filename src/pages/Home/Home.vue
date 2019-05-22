@@ -4,6 +4,7 @@
     <indexSwiper></indexSwiper>
     <Nav></Nav>
     <Recommend></Recommend>
+    <Weekend></Weekend>
   </section>
 </template>
 
@@ -12,6 +13,7 @@ import Header from './components/Header'
 import indexSwiper from './components/Swiper'
 import Nav from './components/Nav'
 import Recommend from './components/Recommend'
+import Weekend from './components/Weekend'
 
 export default {
   name: 'Home',
@@ -19,7 +21,8 @@ export default {
     Header,
     indexSwiper,
     Nav,
-    Recommend
+    Recommend,
+    Weekend
   }
 }
 </script>
