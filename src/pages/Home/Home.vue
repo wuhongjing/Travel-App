@@ -1,10 +1,12 @@
 <template>
   <section class="home">
-    <Header :city="city"></Header>
-    <indexSwiper :swiperList="swiperList"></indexSwiper>
-    <Nav :iconList="iconList"></Nav>
-    <Recommend :recommendList="recommendList"></Recommend>
-    <Weekend :weekendList="weekendList"></Weekend>
+    <div>
+      <Header :city="city"></Header>
+      <indexSwiper :swiperList="swiperList"></indexSwiper>
+      <Nav :iconList="iconList"></Nav>
+      <Recommend :recommendList="recommendList"></Recommend>
+      <Weekend :weekendList="weekendList"></Weekend>
+    </div>
   </section>
 </template>
 
