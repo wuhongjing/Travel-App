@@ -1,18 +1,17 @@
 <template>
   <section class="alphabet">
     <ul class="itemWrap">
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
+      <li class="item" v-for="(item,key) in cities" :key="key">{{key}}</li>
     </ul>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Alphabet'
+  name: 'Alphabet',
+  props: {
+    cities: Object
+  }
 }
 </script>
 
@@ -27,8 +26,9 @@ export default {
    display: flex
    flex-direction: column
    justify-content: center
-   width: .4rem
-   line-height: 0.4rem
+   width: .5rem
+   font-size: .25rem
+   line-height: 0.36rem
    text-align: center
    color: $bgcolor
 </style>

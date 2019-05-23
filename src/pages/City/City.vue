@@ -2,8 +2,8 @@
   <section class="city">
     <CityHeader></CityHeader>
     <CitySearch></CitySearch>
-    <CityList></CityList>
-    <Alphabet></Alphabet>
+    <CityList :cities="cities" :hotCities="hotCities"></CityList>
+    <Alphabet :cities="cities"></Alphabet>
   </section>
 </template>
 
@@ -12,6 +12,7 @@ import CityHeader from './components/CityHeader'
 import CitySearch from './components/CitySearch'
 import CityList from './components/CityList'
 import Alphabet from './components/Alphabet'
+import Axios from 'axios'
 
 export default {
   name: 'City',
@@ -23,8 +24,27 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      cities: {},
+      hotCities: []
     }
+  },
+  methods: {
+    getCityInfo () {
+      Axios.get('./static/mock/city.json')
+        .then(this.getCityInfoSucc)
+    },
+    getCityInfoSucc (res) {
+      console.log(res)
+      let data = res.data
+      if (data.ret || data.data) {
+        data = data.data
+        this.cities = data.cities
+        this.hotCities = data.hotCities
+      }
+    }
+  },
+  mounted () {
+    this.getCityInfo()
   }
 }
 </script>
