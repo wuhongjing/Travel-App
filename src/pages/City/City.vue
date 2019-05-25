@@ -2,8 +2,8 @@
   <section class="city">
     <CityHeader></CityHeader>
     <CitySearch></CitySearch>
-    <CityList :cities="cities" :hotCities="hotCities"></CityList>
-    <Alphabet :cities="cities"></Alphabet>
+    <CityList :cities="cities" :hotCities="hotCities" :letter="letter"></CityList>
+    <Alphabet :cities="cities" @change="handlePassMsg"></Alphabet>
   </section>
 </template>
 
@@ -25,7 +25,8 @@ export default {
   data () {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letter: ''
     }
   },
   methods: {
@@ -41,6 +42,10 @@ export default {
         this.cities = data.cities
         this.hotCities = data.hotCities
       }
+    },
+    handlePassMsg (val) {
+      // console.log(val)
+      this.letter = val
     }
   },
   mounted () {
