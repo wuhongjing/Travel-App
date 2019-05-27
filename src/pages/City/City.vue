@@ -1,7 +1,7 @@
 <template>
   <section class="city">
     <CityHeader></CityHeader>
-    <CitySearch></CitySearch>
+    <CitySearch :cities="cities"></CitySearch>
     <CityList :cities="cities" :hotCities="hotCities" :letter="letter"></CityList>
     <Alphabet :cities="cities" @change="handlePassMsg"></Alphabet>
   </section>

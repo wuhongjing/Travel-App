@@ -4,13 +4,13 @@
         <div class="area">
           <h3 class="title border-topbottom">当前位置</h3>
           <ul class="citySearch">
-              <li><p>北京</p></li>
+              <li><p>{{this.$store.state.city}}</p></li>
           </ul>
         </div>
         <div class="area">
           <h3 class="title border-topbottom">热门城市</h3>
             <ul class="citySearch">
-              <li v-for="item in hotCities" :key="item.id"><p>{{item.name}}</p></li>
+              <li v-for="item in hotCities" :key="item.id" @click="handleChangeCity(item.name)"><p>{{item.name}}</p></li>
           </ul>
         </div>
         <div class="area" v-for="(item,key) in cities" :key="key" :ref="key">
@@ -19,7 +19,9 @@
             <li
                class="list border-bottom"
                v-for="innerItem in item"
-               :key="innerItem.id">
+               :key="innerItem.id"
+               @click="handleChangeCity(innerItem.name)"
+               >
                {{innerItem.name}}
             </li>
           </ol>
@@ -36,6 +38,12 @@ export default {
     cities: Object,
     hotCities: Array,
     letter: String
+  },
+  methods: {
+    handleChangeCity (city) {
+      this.$store.commit('cityChange', city)
+      this.$router.push('/')
+    }
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
