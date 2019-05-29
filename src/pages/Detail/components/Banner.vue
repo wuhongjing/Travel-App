@@ -1,18 +1,43 @@
 <template>
-  <section class="banner">
-    <img class="picShow" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" />
-    <div class="bannerInfo">
-      <p class="bannerTit">北京市东城区景山前街4号</p>
-      <p class="bannerNum">
-        <i class="iconfont picIcon">&#59026;</i>39
-      </p>
+  <section>
+    <div class="banner" @click="handleBannerClick">
+      <img class="picShow" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" />
+      <div class="bannerInfo">
+        <p class="bannerTit">北京市东城区景山前街4号</p>
+        <p class="bannerNum">
+          <i class="iconfont picIcon">&#59026;</i>39
+        </p>
+      </div>
     </div>
+    <Gallary :imgsList="imgsList" v-show="gallaryShow" @close="handleGallaryClose"></Gallary>
   </section>
 </template>
 
 <script>
+import Gallary from 'common/Gallary/Gallary'
+
 export default {
-  name: 'Banner'
+  name: 'Banner',
+  components: {
+    Gallary
+  },
+  data () {
+    return {
+      imgsList: [
+        'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg',
+        'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg'
+      ],
+      gallaryShow: false
+    }
+  },
+  methods: {
+    handleBannerClick () {
+      this.gallaryShow = true
+    },
+    handleGallaryClose () {
+      this.gallaryShow = false
+    }
+  }
 }
 </script>
 
