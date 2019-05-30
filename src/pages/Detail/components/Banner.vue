@@ -9,17 +9,21 @@
         </p>
       </div>
     </div>
-    <Gallary :gallaryImgs="gallaryImgs" v-show="gallaryShow" @close="handleGallaryClose"></Gallary>
+    <Fade>
+      <Gallary :gallaryImgs="gallaryImgs" v-show="gallaryShow" @close="handleGallaryClose"></Gallary>
+    </Fade>
   </section>
 </template>
 
 <script>
 import Gallary from 'common/Gallary/Gallary'
+import Fade from 'common/Fade/Fade'
 
 export default {
   name: 'Banner',
   components: {
-    Gallary
+    Gallary,
+    Fade
   },
   props: {
     sightName: String,
